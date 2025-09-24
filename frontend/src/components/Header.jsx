@@ -46,27 +46,33 @@ export function Header() {
   }, [rawProvider, account]);
 
   return (
-    <header className="static top-0 flex items-center justify-between border-b p-4 bg-background/75 backdrop-blur-sm hover:shadow-sm transition-shadow">
-      <p className="text-xl md:text-2xl lg:text-3xl font-semibold">
-        Oasis Minesweeper
-      </p>
+    <header className="sticky top-0 z-50 flex items-center justify-between p-6 glass border-b border-white/10">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+          <span className="text-white font-bold text-xl">💎</span>
+        </div>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold gradient-text">
+          Oasis Minesweeper
+        </h1>
+      </div>
       
       <div className="flex items-center gap-4">
         {isConnected ? (
           <div className="flex items-center gap-4">
-            <div className="text-right">
-              <p className="text-sm font-medium">
+            <div className="text-right glass rounded-xl px-4 py-3">
+              <p className="text-sm font-medium text-white">
                 {account ? `${account.slice(0, 6)}...${account.slice(-4)}` : ""}
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-cyan-200">
                 {balance} Oasis Sapphire Testnet Token
               </p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               <Button 
                 onClick={switchToOasisNetwork} 
                 variant="outline" 
                 size="sm"
+                className="glass border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 px-4 py-2 rounded-lg"
               >
                 Switch Network
               </Button>
@@ -74,13 +80,14 @@ export function Header() {
                 onClick={disconnectWallet} 
                 variant="outline" 
                 size="sm"
+                className="glass border-red-400/50 text-red-400 hover:bg-red-400/10 px-4 py-2 rounded-lg"
               >
                 Disconnect
               </Button>
             </div>
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground">Not connected</p>
+          <p className="text-sm text-white/60 glass rounded-lg px-4 py-2">Not connected</p>
         )}
       </div>
     </header>

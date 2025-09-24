@@ -20,32 +20,40 @@ const TestFaucet = () => {
   };
 
   return (
-    <div className="text-center border rounded-lg p-6 bg-blue-50 border-blue-200">
-      <h3 className="text-lg font-semibold mb-3 text-blue-900">
-        💧 Need Oasis Sapphire Testnet Tokens?
+    <div className="text-center glass rounded-2xl p-8 border border-cyan-400/20">
+      <div className="text-4xl mb-4">💧</div>
+      
+      <h3 className="text-2xl font-bold mb-4 gradient-text">
+        Need Oasis Sapphire Testnet Tokens?
       </h3>
-      <p className="text-sm text-blue-700 mb-4">
+      
+      <p className="text-white/80 mb-6 text-lg">
         You need Oasis Sapphire Testnet tokens to play the game. Get 10 tokens from the faucet:
       </p>
       
       {isConnected && account ? (
-        <div className="space-y-3">
-          <div className="text-xs text-blue-600 bg-blue-100 p-2 rounded">
-            Wallet: {account.slice(0, 6)}...{account.slice(-4)}
+        <div className="space-y-4">
+          <div className="text-sm text-cyan-200 glass p-3 rounded-xl">
+            <span className="font-medium">Wallet:</span> {account.slice(0, 6)}...{account.slice(-4)}
           </div>
+          
           <Button 
             onClick={handleFaucetClick}
-            className="bg-blue-600 hover:bg-blue-700 text-white"
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg"
           >
             Get Oasis Sapphire Testnet Tokens from Faucet
-            <ExternalLinkIcon className="h-4 w-4 ml-2" />
+            <ExternalLinkIcon className="h-5 w-5 ml-2" />
           </Button>
-          <p className="text-xs text-blue-600">
-            Instructions: Select "Sapphire" from the dropdown, paste your address, complete CAPTCHA
-          </p>
+          
+          <div className="text-sm text-white/60 glass p-3 rounded-lg">
+            <p className="font-medium mb-1">Instructions:</p>
+            <p>1. Select "Sapphire" from the dropdown</p>
+            <p>2. Paste your address</p>
+            <p>3. Complete CAPTCHA</p>
+          </div>
         </div>
       ) : (
-        <p className="text-sm text-blue-600">
+        <p className="text-white/60 glass rounded-xl p-4">
           Connect your wallet first to get your address for the faucet
         </p>
       )}

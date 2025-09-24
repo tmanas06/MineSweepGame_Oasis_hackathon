@@ -448,9 +448,9 @@ function App() {
   }, [isConnected, signer]);
 
   return (
-    <div className="min-h-dvh">
+    <div className="min-h-dvh bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <Header />
-      <div className="container py-8 mx-auto md:py-12 space-y-4">
+      <div className="container py-8 mx-auto md:py-12 space-y-6 px-4">
         {!walletConnected ?
           <Unauthenticated />
         : <div className="space-y-8">
@@ -526,36 +526,36 @@ function Unauthenticated() {
   return (
     <div className="space-y-8 flex flex-col items-center w-full">
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-4 md:text-4xl lg:text-5xl drop-shadow">
-          Welcome to Oasis Minesweeper
+        <h1 className="text-3xl font-bold mb-4 md:text-4xl lg:text-5xl gradient-text">
+          Welcome to Oasisweeper
         </h1>
-        <p className="mb-4 md:text-lg lg:text-xl text-muted-foreground">
+        <p className="mb-4 md:text-lg lg:text-xl text-white/80">
           Connect your MetaMask wallet to start playing!
         </p>
         
         <div className="flex flex-col gap-4 items-center">
           {!isMetaMaskInstalled() ? (
-            <div className="text-center p-4 border border-yellow-200 bg-yellow-50 rounded-lg">
-              <p className="text-yellow-800 mb-2">MetaMask is not installed</p>
-              <p className="text-sm text-yellow-700 mb-4">
+            <div className="text-center p-6 glass rounded-xl border border-yellow-400/30">
+              <p className="text-yellow-200 mb-2 font-semibold">MetaMask is not installed</p>
+              <p className="text-sm text-yellow-100 mb-4">
                 Please install MetaMask browser extension to continue
               </p>
               <a 
                 href="https://metamask.io/download/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-xl hover:from-orange-600 hover:to-yellow-600 transition-all shadow-lg"
               >
                 Install MetaMask
               </a>
             </div>
           ) : (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               <Button 
                 onClick={connectWallet} 
                 disabled={isConnecting}
                 size="lg"
-                className="min-w-[200px]"
+                className="min-w-[200px] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-6 py-3 rounded-xl shadow-lg"
               >
                 {isConnecting ? "Connecting..." : "Connect MetaMask"}
               </Button>
@@ -563,7 +563,7 @@ function Unauthenticated() {
                 onClick={switchToOasisNetwork} 
                 variant="outline"
                 size="lg"
-                className="min-w-[200px]"
+                className="min-w-[200px] glass border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 px-6 py-3 rounded-xl"
               >
                 Switch to Oasis Network
               </Button>
@@ -580,22 +580,43 @@ function Unauthenticated() {
 function GameRules({ className }) {
   return (
     <div
-      className={cn("rounded-lg border-dashed w-full border p-4", className)}
+      className={cn("glass rounded-xl border border-white/20 w-full p-6", className)}
     >
-      <div className="bg-muted rounded-lg p-4 space-y-4">
-        <h2 className="text-2xl md:text-3xl font-semibold text-center">
+      <div className="space-y-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-center gradient-text">
           Game Rules
         </h2>
 
-        <ul className="list-disc list-inside">
-          <li>The game is played on a 5x5 grid with 5 hidden mines.</li>
-          <li>Click on cells to select them. Submit Moves to validate</li>
-          <li>Each safe move increases your potential winnings.</li>
-          <li>Cash out anytime to secure your winnings.</li>
-          <li>Hit a mine, and you lose your bet.</li>
-          <li>You have 3 minutes to complete the game.</li>
-          <li>Entry fee: 1 Oasis Sapphire Testnet Token</li>
-        </ul>
+        <div className="grid gap-4">
+          <div className="flex items-start gap-3 p-3 glass rounded-lg">
+            <span className="text-cyan-400 font-bold text-lg">1.</span>
+            <p className="text-white/90">The game is played on a 5x5 grid with 5 hidden mines.</p>
+          </div>
+          <div className="flex items-start gap-3 p-3 glass rounded-lg">
+            <span className="text-cyan-400 font-bold text-lg">2.</span>
+            <p className="text-white/90">Click on cells to select them. Submit Moves to validate</p>
+          </div>
+          <div className="flex items-start gap-3 p-3 glass rounded-lg">
+            <span className="text-cyan-400 font-bold text-lg">3.</span>
+            <p className="text-white/90">Each safe move increases your potential winnings.</p>
+          </div>
+          <div className="flex items-start gap-3 p-3 glass rounded-lg">
+            <span className="text-cyan-400 font-bold text-lg">4.</span>
+            <p className="text-white/90">Cash out anytime to secure your winnings.</p>
+          </div>
+          <div className="flex items-start gap-3 p-3 glass rounded-lg">
+            <span className="text-cyan-400 font-bold text-lg">5.</span>
+            <p className="text-white/90">Hit a mine, and you lose your bet.</p>
+          </div>
+          <div className="flex items-start gap-3 p-3 glass rounded-lg">
+            <span className="text-cyan-400 font-bold text-lg">6.</span>
+            <p className="text-white/90">You have 3 minutes to complete the game.</p>
+          </div>
+          <div className="flex items-start gap-3 p-3 glass rounded-lg bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-400/30">
+            <span className="text-purple-400 font-bold text-lg">💰</span>
+            <p className="text-white font-semibold">Entry fee: 1 Oasis Sapphire Testnet Token</p>
+          </div>
+        </div>
       </div>
     </div>
   );
