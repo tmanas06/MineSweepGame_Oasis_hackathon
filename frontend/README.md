@@ -1,6 +1,6 @@
-# React + Vite
+# MinePlay Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MinePlay is a modern blockchain minesweeper game built with React and Vite, featuring a beautiful dark mode interface and MetaMask integration.
 
 Currently, two official plugins are available:
 

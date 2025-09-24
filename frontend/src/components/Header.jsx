@@ -52,7 +52,7 @@ export function Header() {
           <span className="text-white font-bold text-xl">💎</span>
         </div>
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold gradient-text">
-          Oasis Minesweeper
+          MinePlay
         </h1>
       </div>
       

@@ -527,7 +527,7 @@ function Unauthenticated() {
     <div className="space-y-8 flex flex-col items-center w-full">
       <div className="text-center">
         <h1 className="text-3xl font-bold mb-4 md:text-4xl lg:text-5xl gradient-text">
-          Welcome to Oasisweeper
+          Welcome to MinePlay
         </h1>
         <p className="mb-4 md:text-lg lg:text-xl text-white/80">
           Connect your MetaMask wallet to start playing!
